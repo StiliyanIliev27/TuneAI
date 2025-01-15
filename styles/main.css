@@ -1,0 +1,123 @@
+@import "header.css";
+@import "home.css";
+@import "library.css";
+@import "footer.css";
+@import "add-song.css";
+@import "responsive.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --text-color: #2c3e50;
+    --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    --spacing-lg: 40px;
+    --spacing-md: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: var(--text-color);
+    background-color: #f8f9fa;
+}
+
+.home-container {
+    flex: 1;
+    padding: var(--spacing-lg) 0;
+    background: var(--bg-gradient);
+    text-align: center;
+    width: 100%;
+}
+
+.special-container h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.special-container p {
+    font-size: 1.2rem;
+    color: #495057;
+    max-width: 800px;
+    margin: 0 auto var(--spacing-md);
+    line-height: 1.8;
+    padding: 0 var(--spacing-md);
+    text-align: center;
+}
+
+/* Основни стилове за навигацията */
+.navbar {
+    background: linear-gradient(to right, #2c3e50, #3498db);   
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+/* Burger menu styles */
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: block;
+        width: 100%;
+    }
+
+    .nav-item {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .nav-link {
+        padding: 0.5rem 1rem;
+        display: block;
+        text-align: center;
+    }
+
+    .navbar-collapse {
+        background: linear-gradient(to right, #2c3e50, #3498db);
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 1.25rem;
+    }
+
+    .navbar {
+        padding: 0.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
