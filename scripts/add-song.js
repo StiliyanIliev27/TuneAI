@@ -4,19 +4,16 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        // Взимаме всички полета
         const titleInput = document.getElementById('songTitle');
         const artistInput = document.getElementById('artistName');
         const urlInput = document.getElementById('spotifyUrl');
         const moodInput = document.getElementById('mood');
 
-        // Проверяваме дали всички полета са попълнени
         if (!titleInput.value || !artistInput.value || !urlInput.value || !moodInput.value) {
             alert('Please fill in all fields');
             return;
         }
 
-        // Валидираме Spotify URL
         if (!urlInput.value.includes('spotify.com/track/')) {
             alert('Please enter a valid Spotify track URL');
             return;
@@ -29,13 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            // Добавяме песента към базата данни
             if (songDatabase[moodInput.value]) {
                 songDatabase[moodInput.value].push(newSong);
-                
-                // Запазваме промените в localStorage
                 saveSongDatabase();
-                
                 alert('Song added successfully!');
                 form.reset();
                 window.location.href = 'library.html';
@@ -47,4 +40,4 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('Error adding song. Please try again.');
         }
     });
-}); 
+});

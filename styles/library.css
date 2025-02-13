@@ -122,11 +122,11 @@
     }
 
     .table td, .table th {
-        min-width: 100px; /* Минимална ширина за колоните */
+        min-width: 100px; 
     }
 
     .table td:first-child {
-        min-width: 150px; /* По-широка първа колона за заглавията */
+        min-width: 150px; 
     }
 }
 
@@ -163,7 +163,6 @@
     vertical-align: middle;
 }
 
-/* Improve table header visibility */
 .table thead th {
     position: sticky;
     top: 0;
@@ -216,7 +215,6 @@
     transform: scale(1.05);
 }
 
-/* Анимация при изтриване */
 tr {
     transition: all 0.3s ease;
 }
@@ -226,7 +224,6 @@ tr.removing {
     transform: translateX(-20px);
 }
 
-/* Подобряване на бутоните в групата */
 .btn-group-sm > .btn {
     padding: 0.25rem 0.5rem;
 }

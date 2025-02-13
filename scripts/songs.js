@@ -1,4 +1,3 @@
-// Първоначални песни за зареждане
 const initialSongs = {
     happy: [
         { title: "Happy", artist: "Pharrell Williams", url: "https://open.spotify.com/track/60nZcImufyMA1MKQY3dcCH" },
@@ -74,29 +73,25 @@ const initialSongs = {
     ]
 };
 
-// Проверяваме дали има запазени песни в localStorage
 let songDatabase = JSON.parse(localStorage.getItem('songDatabase'));
 
-// Ако няма песни или базата данни е празна, зареждаме първоначалните песни
+
 if (!songDatabase || Object.keys(songDatabase).length === 0 || 
     Object.values(songDatabase).every(arr => arr.length === 0)) {
-    songDatabase = JSON.parse(JSON.stringify(initialSongs)); // Дълбоко копиране
+    songDatabase = JSON.parse(JSON.stringify(initialSongs)); 
     localStorage.setItem('songDatabase', JSON.stringify(songDatabase));
 }
 
-// Функция за запазване на базата данни в localStorage
 function saveSongDatabase() {
     localStorage.setItem('songDatabase', JSON.stringify(songDatabase));
 }
 
-// Функция за връщане към първоначалните песни
 function resetToInitialSongs() {
     songDatabase = JSON.parse(JSON.stringify(initialSongs));
     saveSongDatabase();
-    window.location.reload(); // Презареждаме страницата
+    window.location.reload(); 
 }
 
-// Правим функцията глобално достъпна
 window.resetToInitialSongs = resetToInitialSongs;
 
 function getRandomSongs(mood, count = 3) {
@@ -169,9 +164,8 @@ function playPreview(url) {
     const playerContainer = document.getElementById('player-container');
     const player = document.getElementById('spotify-player');
     
-    // Конвертиране на нормален Spotify URL към embed URL
     const embedUrl = url.replace('track/', 'embed/track/');
     
     player.src = embedUrl;
-    player.style.display = 'block'; // Показваме iframe-а
+    player.style.display = 'block';
 } 

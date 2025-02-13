@@ -2,24 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const libraryTableBody = document.getElementById('library-songs');
     const playerModal = new bootstrap.Modal(document.getElementById('playerModal'));
     const modalElement = document.getElementById('playerModal');
-    const spotifyPlayer = document.getElementById('spotifyPlayer');
+    const spotifyPlayer = document.getElementById('spotifyPlayer');   
     
-    // Добавяме слушател за затваряне на модалния прозорец
     modalElement.addEventListener('hidden.bs.modal', () => {
-        // Спираме песента като изчистваме src на iframe
         spotifyPlayer.src = '';
     });
     
     async function playPreview(url) {
         try {
-            // Извличаме ID на песента от URL
             const trackId = url.split('track/')[1];
-            
-            // Задаваме embed URL за плейъра
             const embedUrl = `https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0`;
             spotifyPlayer.src = embedUrl;
-            
-            // Показваме модалния прозорец
             playerModal.show();
         } catch (error) {
             console.error('Error loading player:', error);
@@ -28,17 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function removeSong(mood, title, artist) {
-        // Намираме индекса на песента в съответното настроение
         const songIndex = songDatabase[mood].findIndex(
             song => song.title === title && song.artist === artist
         );
         
         if (songIndex > -1) {
-            // Премахваме песента от масива
             songDatabase[mood].splice(songIndex, 1);
-            // Запазваме промените в localStorage
             saveSongDatabase();
-            // Презареждаме таблицата
             loadSongs();
         }
     }
@@ -76,10 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
     
-    // Правим функциите глобално достъпни
     window.playPreview = playPreview;
     window.removeSong = removeSong;
     
-    // Зареждаме песните първоначално
     loadSongs();
 });
